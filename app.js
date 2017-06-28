@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+var bla = 3;
 
 var uidCounter = 1;
 var logedInUsers = {};
