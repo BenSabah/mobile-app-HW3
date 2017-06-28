@@ -1,33 +1,34 @@
+// import the relevant libraries
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-
+// make an express object
 var app = express();
 
+// create a virtual path prefix that enables using the following resources:
+// images, CSS files, and JavaScript files from a directory named public
+// you can load the files that are in the public directory from the /static path prefix.
+app.use('/public',express.static(path.join(__dirname, 'public')));
+app.set("view engine", "ejs");
 
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(cookieParser());
+
+// START THE SERVER
+// =============================================================================
+var port = process.env.PORT || 8080;        // set our port
+app.listen(port);
+console.log('Magic happens on port ' + port);
 
 var uidCounter = 1;
 var logedInUsers = {};
 var logedInUsersTag = {};
 
-
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-var port = process.env.PORT || 8080;        // set our port
-
-var router = express.Router(); // get an instance of the express Router
-
-// START THE SERVER
-// =============================================================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
 
 
 // REGISTER OUR ROUTES -------------------------------
