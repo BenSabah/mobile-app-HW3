@@ -65,6 +65,7 @@ var users = [
     }
 ];
 
+  // post requests handlers
   
 // add a user and a password to the user-list
 app.post("/register/:username/:password",function(req,res,next){
@@ -121,32 +122,81 @@ app.post("/login/:username/:password",function(req,res,next){
 });
 
 
-// get a unique user ID
+// helper method - get a unique user ID
 function guid() {
 	// create a unique user ID
-    function uUid() {
+    function uUidMaker() {
         return Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
             .substring(1);
     }
-    return uUid() + uUid() + '-' + uUid() + '-' + uUid() + '-' +
-        uUid() + '-' + uUid() + uUid() + uUid();
+	// can change length as needed for safty reasons
+    return uUidMaker() + '-' + uUidMaker() + uUidMaker() + '-' + uUidMaker() + uUidMaker() + uUidMaker() +
+         '-' + uUidMaker() + uUidMaker() + uUidMaker() + uUidMaker();
 }
+
+// adds a user's event
+app.post("/item/", function(req,res){
+    let newEvent = req.body;
+	// can use the same UID function for event IDs
+    newEvent.id = guid();
+    newEvent.time = generateTimeStamp();
+    events.unshift(newEvent);
+    res.redirect("/events");
+});
+
+// helper method - generate a timestamp
+function generateTimeStamp() {
+    var date = new Date().toUTCString();
+    console.log("Date is:" + date)
+    return date;
+}
+
+	// get requests handler
+
+// return all the items as an array object
+app.get("/items",function(req,res,next){
+    res.send(events);
+});
+
+// returns the item with the right id or 404 if no such an item
+app.get("/item/:id", function(req,res,next){
+    let id = req.params.id;
+    console.log("id to return =" + id);
+    let found = false;
+    for(i = 0; i < events.length; i++) {
+        var event = events[i];
+        if(event.id === id) {
+            found = true;
+            res.send(event);
+            break;
+        }
+    }
+    if (!found){
+        next();
+    }
+});
+
+
+
 
 // checks if a user's id exists
 app.use("/", function(req,res,next){
     let cookieUid = req.cookies.uid;
     let cookieFound = false;
+	
+	// if the user id exists continue
+	// else show him the login page again
     if (cookieUid){
         users.forEach(function(user){
             if(cookieUid === user.uid){
                 cookieFound = true;
-                console.log("verified cookie");
+                console.log("cookie verified");
             }
         });
     }
     if (!cookieFound){
-        res.render("hello");
+        res.render("ReglogPage");
     } else {
         next();
     }
