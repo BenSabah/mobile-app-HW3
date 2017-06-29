@@ -66,7 +66,7 @@ var users = [
 ];
 
   
-// add a user and password to the user-list
+// add a user and a password to the user-list
 app.post("/register/:username/:password",function(req,res,next){
     let username = req.params.username;
     let password = req.params.password;
@@ -84,13 +84,71 @@ app.post("/register/:username/:password",function(req,res,next){
     }
     if (userExist){
         console.log("user already exists");
-        res.sendStatus(500);
+        res.send(500);
     } else {
         console.log("Registration successful");
         users.push({username: username, password: password});
-        res.sendStatus(200);
+        res.send(200);
     }
 });
 
 
+// login an go to the events page
+app.post("/login/:username/:password",function(req,res,next){
+    let username = req.params.username;
+    let password = req.params.password;
+    let foundUser = false;
+    
+	for(i = 0; i < users.length; i++){
+        if ((users[i].username === username) && (users[i].password === password)){
+            // user is signed
+			foundUser = true;
+			// get a user ID
+            let uid = guid();
+            // send uid cookie with max life time of 60 min
+            res.cookie('uid',uid, { maxAge: 3.6e+6 });
+			// set the users id
+            users[i].uid = uid;
+            console.log("user logged in = " + users[i].username);
+            res.send(200);
+            break;
+        }
+    }
+    if (!foundUser){
+        console.log("user or password were not found");
+        res.send(500);
+    }
+});
 
+
+// get a unique user ID
+function guid() {
+	// create a unique user ID
+    function uUid() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return uUid() + uUid() + '-' + uUid() + '-' + uUid() + '-' +
+        uUid() + '-' + uUid() + uUid() + uUid();
+}
+
+// checks if a user's id exists
+app.use("/", function(req,res,next){
+    let cookieUid = req.cookies.uid;
+    let cookieFound = false;
+    if (cookieUid){
+        users.forEach(function(user){
+            if(cookieUid === user.uid){
+                cookieFound = true;
+                console.log("verified cookie");
+            }
+        });
+    }
+    if (!cookieFound){
+        res.render("hello");
+    } else {
+        next();
+    }
+
+});
