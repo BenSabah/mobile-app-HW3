@@ -65,7 +65,7 @@ var users = [
     }
 ];
 
-  // post requests handlers
+	/// post requests handlers
   
 // add a user and a password to the user-list
 app.post("/register/:username/:password",function(req,res,next){
@@ -152,7 +152,7 @@ function generateTimeStamp() {
     return date;
 }
 
-	// get requests handler
+	/// get requests handlers
 
 // return all the items as an array object
 app.get("/items",function(req,res,next){
@@ -162,7 +162,7 @@ app.get("/items",function(req,res,next){
 // returns the item with the right id or 404 if no such an item
 app.get("/item/:id", function(req,res,next){
     let id = req.params.id;
-    console.log("id to return =" + id);
+    console.log("id to return = " + id);
     let found = false;
     for(i = 0; i < events.length; i++) {
         var event = events[i];
@@ -177,8 +177,79 @@ app.get("/item/:id", function(req,res,next){
     }
 });
 
+app.get("/edit/:id",function(req,res){
+    let id = req.params.id;
+    let eventToReturn;
+    events.forEach(function(event){
+       if (event.id === id){
+           eventToReturn = event;
+       }
+    });
+    res.render("edit-event", {event: eventToReturn});
+});
+
+app.use("/events", function(req,res){
+    console.log("/events");
+    res.render("events", {events: events});
+});
 
 
+//upload home page
+app.get("/public/ReglogPage.html", function(req,res,next){
+    res.render("ReglogPage");
+});
+
+
+
+
+	/// delete requests handler
+
+app.delete("/item/:id",function(req,res,next){
+    let id = req.params.id;
+    let found = false;
+    for(i = 0; i < events.length; i++) {
+        let event = events[i];
+        if(event.id == id) {
+            found = true;
+            events.splice(i, 1);
+            console.log("deleted event id = " + id);
+            break;
+        }
+    }
+    if (!found){
+        next();
+    } else {
+        res.redirect(res.get("/events"));
+    }
+});	
+
+	/// put requests handler
+	
+// overwrite the properties values of the item with the same id or 404 if no such an item
+app.put("/item/", function(req,res,next){
+    console.log("PUT /item/");
+    let updatedEvent = req.body;
+    let id = updatedEvent.id;
+    let found = false;
+    console.log("event to update = " + JSON.stringify(updatedEvent));
+    events.forEach(function(event){
+        if (id === event.id){
+            event.name = updatedEvent.name;
+            event.time = generateTimeStamp();
+            event.location = updatedEvent.location;
+            event.activity = updatedEvent.activity;
+            event.img = updatedEvent.img;
+            res.send("event " + id + " was replaced");
+            found = true;
+        }
+    });
+    if (!found) {
+        next();
+    }
+});
+
+
+	/// general handlers 
 
 // checks if a user's id exists
 app.use("/", function(req,res,next){
@@ -201,4 +272,11 @@ app.use("/", function(req,res,next){
         next();
     }
 
+});
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    res.send(err);
 });
