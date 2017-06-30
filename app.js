@@ -34,15 +34,15 @@ var events = [
         time: "Thu, 21 Jun 2017 19:00:00 GMT",
         location: "Herzelia, park",
         activity: "basketball",
-        img: "https://www.courtsoftheworld.com/upload/courts/248/0/COTW_Tupper-Park_1244670982.jpg",
+        img: "https://s-media-cache-ak0.pinimg.com/originals/32/77/9d/32779d944a90b66478da7e58a359d4a8.jpg",
         id: "0"
     },
     {
-        name: "Herzelia, video gaming, need 1 more players",
+        name: "Ninja turtles meeting, need 2 more turtles",
         time: "Sat, 1 July 2017 20:30:00 GMT",
-        location: "Herzelia, ezel street 28",
-        activity: "playing dota 2",
-        img: "http://cdn.dota2.com/apps/dota2/images/blogfiles/wh_blog.jpg",
+        location: "TA, dizingof 23",
+        activity: "kicking bad guys",
+        img: "http://www.pcgalaxy.co.il/wp-content/uploads/2015/12/teenage-mutant-ninja-turtles-1987-52775990e3252.png",
         id: "1"
     }
 ];
