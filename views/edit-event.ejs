@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>items</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body class="robotoFont" bgcolor=#f5f7f2>
+<style type="text/css">
+    .container {
+        clear: both;
+        display: block;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+        align-content: center;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    .myBtn {
+        width: 143px;
+        margin-top: 50px;
+    }
+
+    .myBtns {
+        margin-top: 30px;
+    }
+</style>
+    <div class="container">
+            <div class="wideField">
+                <div id="eventId" style="visibility:hidden;"><%= event.id%></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="name" type="text" value="<%= event.name %>">
+                    <label class="mdl-textfield__label" for="name">Name</label>
+                </div>
+            </div>
+            <div class="thinField">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="location" type="text" value="<%= event.location %>">
+                    <label class="mdl-textfield__label" for="location">Location</label>
+                </div>
+            </div>
+            <div class="wideField">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="activity" type="text" value="<%= event.food %>">
+                    <label class="mdl-textfield__label" for="activity">Activity</label>
+                </div>
+            </div>
+            <div class="wideField">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="img" type="text" value="<%= event.img %>">
+                    <label class="mdl-textfield__label" for="img">Image url</label>
+                </div>
+            </div>
+
+            <div>
+                <button id="cancelBtn" class="addBtn mdl-button mdl-js-button mdl-button--raised">
+                    Cancel
+                </button>
+                <button id="updateBtn" class="addBtn mdl-button mdl-button--raised">
+                    Update
+                </button>
+            </div>
+    </div>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css"/>
+    <script type="text/javascript" src="/views/material.min.css"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="/public/script.js"></script>
+</body>
+</html>

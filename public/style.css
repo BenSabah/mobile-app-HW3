@@ -1,0 +1,84 @@
+.title {
+    font-family: 'Georgia';
+    size: 100px;
+	color: #fcd054;
+}
+
+.allContainers {
+    display: flex;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.container {
+    clear: both;
+    display: block;
+    margin-top: 0%;
+    margin-right: 25%;
+    width: 0%;
+    align-content: center;
+    font-family: 'Roboto Mono', monospace;
+	color: #191919;
+}
+
+.thinField {
+    width: 120px;
+}
+
+.wideField {
+    width: 200px;
+}
+
+.rightContainer {
+    clear: both;
+    display: block;
+    margin-left: -4%;
+    width: 56%;
+    font-family: 'Arial';
+    font-size: large;
+}
+
+.tableContainer {
+    margin-bottom: 5%;
+    font-size: 10px;
+}
+
+.tableSize {
+    font-size: small;
+}
+
+.addBtn {
+    width: 120px;
+}
+
+.deleteBtn {
+    width: 250px;
+    margin-bottom: 10px;
+    margin-left: 100%;
+}
+
+div.gallery {
+    margin: 10px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 200px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 200px;
+    height: 150px;
+}
+
+div.desc {
+    padding: 3px;
+    text-align: center;
+    color: #00bfa5;
+}
+
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+.material-icons {padding-right: 12px}

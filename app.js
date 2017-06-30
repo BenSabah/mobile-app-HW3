@@ -30,7 +30,7 @@ console.log('Magic happens on port ' + port);
 //All events are going to be stored in here
 var events = [
     {
-        name: "Herzelia, basketball game, need 3 more players",
+        name: "Basketball game, need 3 more players",
         time: "Thu, 21 Jun 2017 19:00:00 GMT",
         location: "Herzelia, park",
         activity: "basketball",
