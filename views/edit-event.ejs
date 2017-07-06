@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>items</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300" rel="stylesheet">
+    <title>Edit Event</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="/public/style.css">
 </head>
-<body class="robotoFont" bgcolor=#f5f7f2>
-<style type="text/css">
-    .container {
-        clear: both;
-        display: block;
-        margin-top: 50px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 25%;
-        align-content: center;
-        font-family: 'Roboto Mono', monospace;
-    }
 
-    .myBtn {
-        width: 143px;
-        margin-top: 50px;
-    }
+<body bgcolor=#3A4662>
+	<h1 align="center" class="title">Hobbyt</h1>
+	<h2 align="center" class="title">Edit Event</h1>
 
-    .myBtns {
-        margin-top: 30px;
-    }
-</style>
     <div class="container">
             <div class="wideField">
                 <div id="eventId" style="visibility:hidden;"><%= event.id%></div>
@@ -36,7 +20,7 @@
                     <label class="mdl-textfield__label" for="name">Name</label>
                 </div>
             </div>
-            <div class="thinField">
+            <div class="wideField">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input class="mdl-textfield__input" name="location" type="text" value="<%= event.location %>">
                     <label class="mdl-textfield__label" for="location">Location</label>
@@ -65,8 +49,7 @@
             </div>
     </div>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css"/>
     <script type="text/javascript" src="/views/material.min.css"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

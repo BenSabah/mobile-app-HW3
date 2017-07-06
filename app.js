@@ -65,7 +65,7 @@ var users = [
     }
 ];
 
-	/// post requests handlers
+/// post requests handlers
   
 // add a user and a password to the user-list
 app.post("/register/:username/:password",function(req,res,next){
@@ -93,7 +93,6 @@ app.post("/register/:username/:password",function(req,res,next){
     }
 });
 
-
 // login an go to the events page
 app.post("/login/:username/:password",function(req,res,next){
     let username = req.params.username;
@@ -120,7 +119,6 @@ app.post("/login/:username/:password",function(req,res,next){
         res.send(500);
     }
 });
-
 
 // helper method - get a unique user ID
 function guid() {
@@ -152,7 +150,8 @@ function generateTimeStamp() {
     return date;
 }
 
-	/// get requests handlers
+
+/// get requests handlers
 
 // return all the items as an array object
 app.get("/items",function(req,res,next){
@@ -200,9 +199,7 @@ app.get("/public/ReglogPage.html", function(req,res,next){
 });
 
 
-
-
-	/// delete requests handler
+/// delete requests handler
 
 app.delete("/item/:id",function(req,res,next){
     let id = req.params.id;
@@ -223,7 +220,8 @@ app.delete("/item/:id",function(req,res,next){
     }
 });	
 
-	/// put requests handler
+
+/// put requests handler
 	
 // overwrite the properties values of the item with the same id or 404 if no such an item
 app.put("/item/", function(req,res,next){
@@ -249,7 +247,7 @@ app.put("/item/", function(req,res,next){
 });
 
 
-	/// general handlers 
+/// general handlers 
 
 // checks if a user's id exists
 app.use("/", function(req,res,next){
@@ -271,7 +269,6 @@ app.use("/", function(req,res,next){
     } else {
         next();
     }
-
 });
 
 // catch 404 and forward to error handler

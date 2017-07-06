@@ -20,7 +20,6 @@ $("#register").click(function(){
 });
 
 
-
 // handle login click
 $("#login").click(function(){
     let username = $("#username").val();
@@ -81,4 +80,3 @@ $("#updateBtn").on("click", ()=>{
         }
     });
 });
-
