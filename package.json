@@ -1,7 +1,7 @@
 {
   "name": "ex3",
-  "version": "1.0.1",
-  "description": "200662781 BensID",
+  "version": "1.0.3",
+  "description": "200662781 300358991",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"

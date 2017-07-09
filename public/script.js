@@ -1,7 +1,5 @@
 console.log("script loaded");
 
-var eventToEdit;
-
 // handle register click
 $("#register").click(function(){
    let username = $("#username").val();
@@ -19,8 +17,7 @@ $("#register").click(function(){
    })
 });
 
-
-// handle login click
+// handle login.
 $("#login").click(function(){
     let username = $("#username").val();
     let password = $("#password").val();
@@ -35,7 +32,7 @@ $("#login").click(function(){
     });
 });
 
-// handle click delete
+// handle delete.
 $(".delete").on("click",()=>{
     let id = event.target.id;
     $.ajax({
@@ -48,19 +45,18 @@ $(".delete").on("click",()=>{
     });
 });
 
-// handle edit event
+// handle edit.
 $(".edit").on("click",()=>{
    let id = event.target.id;
     window.location.replace("/edit/" + id);
 });
 
-// cancel button
+// handle cancel.
 $("#cancelBtn").on("click", ()=>{
     window.location.replace("/events");
-
 });
 
-// update button
+// handle update.
 $("#updateBtn").on("click", ()=>{
     console.log("clicked on update");
     let newEvent = {};

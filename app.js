@@ -32,7 +32,7 @@ var events = [
     {
         name: "Basketball game, need 3 more players",
         time: "Thu, 21 Jun 2017 19:00:00 GMT",
-        location: "Herzelia, park",
+        location: "Herzliya, park",
         activity: "basketball",
         img: "https://s-media-cache-ak0.pinimg.com/originals/32/77/9d/32779d944a90b66478da7e58a359d4a8.jpg",
         id: "0"
@@ -194,8 +194,8 @@ app.use("/events", function(req,res){
 
 
 //upload home page
-app.get("/public/ReglogPage.html", function(req,res,next){
-    res.render("ReglogPage");
+app.get("/public/login-page.html", function(req,res,next){
+    res.render("login-page");
 });
 
 
@@ -260,12 +260,13 @@ app.use("/", function(req,res,next){
         users.forEach(function(user){
             if(cookieUid === user.uid){
                 cookieFound = true;
-                console.log("cookie verified");
+                console.log("cookie verified" + user.uid);
+				res.redirect("/events");
             }
         });
     }
     if (!cookieFound){
-        res.render("ReglogPage");
+        res.render("login-page");
     } else {
         next();
     }
