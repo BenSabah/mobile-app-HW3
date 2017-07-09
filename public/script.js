@@ -6,7 +6,7 @@ $("#register").click(function(){
    let password = $("#password").val();
    $.post("/register/"+ username + "/" + password, function(data,status){
        console.log("user was added");
-       $("#loginErrorMessage").text("You were successfully registered please login");
+       $("#loginErrorMessage").text("You were successfully registered, please login");
        $("#loginErrorMessage").css("color","#00ff7f");
        $("#loginErrorMessage").css("visibility","visible");
    }).fail(function(){

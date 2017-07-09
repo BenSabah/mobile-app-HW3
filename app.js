@@ -260,7 +260,7 @@ app.use("/", function(req,res,next){
         users.forEach(function(user){
             if(cookieUid === user.uid){
                 cookieFound = true;
-                console.log("cookie verified" + user.uid);
+                console.log("cookie verified - " + user.uid);
 				res.redirect("/events");
             }
         });

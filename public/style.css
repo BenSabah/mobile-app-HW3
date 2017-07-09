@@ -21,10 +21,22 @@ body {
 
 .sub-title {
 	font-size: 2.5em;
-	size: 300px;
-	color: #FFFFFF;
+	color: var(--third-color);
 	text-shadow: 3px 3px var(--second-color);
 	text-align: center;
+}
+
+.loginDiv {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	margin-top: 60px;
+}
+
+.myButton {
+	width: 10em;
+	margin-top: 50px;
 }
 
 .eventsPageContainers {
@@ -38,25 +50,18 @@ body {
 	align-content: center;
 }
 
+.eventAddButton {
+	width: 50%;
+}
+
 .eventsRightContainer {
 	font-size: large;
 }
 
-.eventsInputField {
-	width: 100%;
-}
-
-.eventButton {
-	width: 50%;
-}
-
 .eventEditContainer {
-	display: inline-block;
-	margin-left: 2%;
-	margin-right: 2%;
-}
-
-.wideInputField {
+	width: 100%;
+	position: absolute;
+	margin-left: 40%;
 }
 
 .tableContainer {
@@ -64,6 +69,9 @@ body {
 	font-size: large;
 }
 
+.material-icons.md-dark {
+	color: rgba(0, 0, 0, 0.50);
+}
 
 .gallery {
 	margin: 10px;
@@ -81,22 +89,9 @@ body {
 	width: 100%;
 	height: 100%;
 }
-
-.myBtn {
-	width: 143px;
-	margin-top: 50px;
-}
-
-.myBtns {
-	margin-top: 30px;
-}
 	
 .eventDescription {
 	padding: 3px;
 	text-align: center;
 	color: var(--third-color);
-}
-
-.material-icons.md-dark {
-	color: rgba(0, 0, 0, 0.50);
 }
