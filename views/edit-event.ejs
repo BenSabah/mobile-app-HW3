@@ -14,52 +14,60 @@
 
 <body>
 <h1 class="title">Hobbyt</h1>
-<h2 class="sub-title">Edit Event</h1>
+<h2 class="sub-title">Edit Event</h2>
 
-    <div class="eventEditContainer">
+<div class="eventEditContainer">
 
-        <div id="eventId" style="visibility:hidden;"><%= event.id %></div>
+    <div id="eventId" style="visibility:hidden;"><%= event.id %></div>
 
-        <div class="eventsInputField">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <div class="eventsInputField">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label>
                 <input class="mdl-textfield__input" name="name" type="text" value="<%= event.name %>">
-                <label class="mdl-textfield__label" for="name">Name</label>
-            </div>
-        </div>
-
-        <div class="eventsInputField">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" name="location" type="text" value="<%= event.location %>">
-                <label class="mdl-textfield__label" for="location">Location</label>
-            </div>
-        </div>
-
-        <div class="eventsInputField">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" name="activity" type="text" value="<%= event.food %>">
-                <label class="mdl-textfield__label" for="activity">Activity</label>
-            </div>
-        </div>
-        <div class="eventsInputField">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" name="img" type="text" value="<%= event.img %>">
-                <label class="mdl-textfield__label" for="img">Image url</label>
-            </div>
-        </div>
-
-        <div>
-            <button id="cancelBtn"
-                    class="eventButton myButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                Cancel
-            </button>
-            <button id="updateBtn"
-                    class="eventButton myButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                Update
-            </button>
+            </label>
+            <label class="mdl-textfield__label" for="name">Name</label>
         </div>
     </div>
 
-    <script type="text/javascript" src="/public/script.js"></script>
+    <div class="eventsInputField">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label>
+                <input class="mdl-textfield__input" name="location" type="text" value="<%= event.location %>">
+            </label>
+            <label class="mdl-textfield__label" for="location">Location</label>
+        </div>
+    </div>
+
+    <div class="eventsInputField">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label>
+                <input class="mdl-textfield__input" name="activity" type="text" value="<%= event.food %>">
+            </label>
+            <label class="mdl-textfield__label" for="activity">Activity</label>
+        </div>
+    </div>
+    <div class="eventsInputField">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label>
+                <input class="mdl-textfield__input" name="img" type="text" value="<%= event.img %>">
+            </label>
+            <label class="mdl-textfield__label" for="img">Image url</label>
+        </div>
+    </div>
+
+    <div>
+        <button id="cancelBtn"
+                class="eventButton myButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Cancel
+        </button>
+        <button id="updateBtn"
+                class="eventButton myButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Update
+        </button>
+    </div>
+</div>
+
+<script type="text/javascript" src="/public/script.js"></script>
 </body>
 
 </html>

@@ -1,63 +1,5 @@
-// import the relevant libraries
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-// make an express object
-var app = express();
-
-// create a virtual path prefix that enables using the following resources:
-// images, CSS files, and JavaScript files from a directory named public
-// you can load the files that are in the public directory from the /static path prefix.
-app.use('/public', express.static(path.join(__dirname, 'public')));
-app.set("view engine", "ejs");
-
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(cookieParser());
-
-// START THE SERVER
-// =============================================================================
-//var port = process.env.PORT || 8080;        // set our port
-var port = 8080;
-app.listen(port);
-console.log('Magic happens on port ' + port);
-
-
-//All events are going to be stored in here
-var events = [
-    {
-        name: "Basketball game, need 3 more players",
-        time: "Thu, 21 Jun 2017 19:00:00 GMT",
-        location: "Herzliya, park",
-        activity: "basketball",
-        img: "https://s-media-cache-ak0.pinimg.com/originals/32/77/9d/32779d944a90b66478da7e58a359d4a8.jpg",
-        id: "0"
-    },
-    {
-        name: "Ninja turtles meeting, need 2 more turtles",
-        time: "Sat, 1 July 2017 20:30:00 GMT",
-        location: "TA, dizingof 23",
-        activity: "kicking bad guys",
-        img: "http://www.pcgalaxy.co.il/wp-content/uploads/2015/12/teenage-mutant-ninja-turtles-1987-52775990e3252.png",
-        id: "1"
-    }
-];
-
-// adding events by users of the app
-function addEvent(name, time, location, activity, img) {
-    this.name = name;
-    this.time = time;
-    this.location = location;
-    this.activity = activity;
-    this.img = img;
-}
-
 // array to hold our users
-var users = [
+const users = [
     {
         uid: "1",
         username: "admin",
@@ -68,7 +10,7 @@ var users = [
 /// post requests handlers
 
 // add a user and a password to the user-list
-app.post("/register/:username/:password", function (req, res, next) {
+app.post("/register/:username/:password", function (req, res) {
     let username = req.params.username;
     let password = req.params.password;
     console.log("username = " + username);
@@ -93,8 +35,8 @@ app.post("/register/:username/:password", function (req, res, next) {
     }
 });
 
-// login an go to the events page
-app.post("/login/:username/:password", function (req, res, next) {
+// login and go to the events page
+app.post("/login/:username/:password", function (req, res) {
     let username = req.params.username;
     let password = req.params.password;
     let foundUser = false;
@@ -155,7 +97,7 @@ function generateTimeStamp() {
 /// get requests handlers
 
 // return all the items as an array object
-app.get("/items", function (req, res, next) {
+app.get("/items", function (req, res) {
     res.send(events);
 });
 
@@ -195,7 +137,7 @@ app.use("/events", function (req, res) {
 
 
 //upload home page
-app.get("/public/login-page.html", function (req, res, next) {
+app.get("/public/login-page.html", function (req, res) {
     res.render("login-page");
 });
 
@@ -207,7 +149,7 @@ app.delete("/item/:id", function (req, res, next) {
     let found = false;
     for (i = 0; i < events.length; i++) {
         let event = events[i];
-        if (event.id == id) {
+        if (event.id === id) {
             found = true;
             events.splice(i, 1);
             console.log("deleted event id = " + id);
@@ -248,7 +190,7 @@ app.put("/item/", function (req, res, next) {
 });
 
 
-/// general handlers 
+/// general handlers
 
 // checks if a user's id exists
 app.use("/", function (req, res, next) {
@@ -266,6 +208,7 @@ app.use("/", function (req, res, next) {
             }
         });
     }
+
     if (!cookieFound) {
         res.render("login-page");
     } else {
@@ -274,7 +217,7 @@ app.use("/", function (req, res, next) {
 });
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function (req, res) {
     var err = new Error('Not Found');
     err.status = 404;
     res.send(err);
