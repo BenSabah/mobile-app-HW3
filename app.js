@@ -10,7 +10,7 @@ var app = express();
 // create a virtual path prefix that enables using the following resources:
 // images, CSS files, and JavaScript files from a directory named public
 // you can load the files that are in the public directory from the /static path prefix.
-app.use('/public',express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
 
 // configure app to use bodyParser()
@@ -48,9 +48,9 @@ var events = [
 ];
 
 // adding events by users of the app
-function addEvent(name,time, location, activity, img) {
+function addEvent(name, time, location, activity, img) {
     this.name = name;
-	this.time = time;
+    this.time = time;
     this.location = location;
     this.activity = activity;
     this.img = img;
@@ -60,30 +60,30 @@ function addEvent(name,time, location, activity, img) {
 var users = [
     {
         uid: "1",
-        username : "admin",
+        username: "admin",
         password: "1234"
     }
 ];
 
 /// post requests handlers
-  
+
 // add a user and a password to the user-list
-app.post("/register/:username/:password",function(req,res,next){
+app.post("/register/:username/:password", function (req, res, next) {
     let username = req.params.username;
     let password = req.params.password;
     console.log("username = " + username);
     console.log("password = " + password);
     let userExist = false;
-	
-	// checks if the user already exists
-	// or if its a new user we need to add
-    for(i = 0; i < users.length; i++){
-        if (users[i].username === username){
+
+    // checks if the user already exists
+    // or if its a new user we need to add
+    for (i = 0; i < users.length; i++) {
+        if (users[i].username === username) {
             userExist = true;
             break;
         }
     }
-    if (userExist){
+    if (userExist) {
         console.log("user already exists");
         res.send(500);
     } else {
@@ -94,27 +94,27 @@ app.post("/register/:username/:password",function(req,res,next){
 });
 
 // login an go to the events page
-app.post("/login/:username/:password",function(req,res,next){
+app.post("/login/:username/:password", function (req, res, next) {
     let username = req.params.username;
     let password = req.params.password;
     let foundUser = false;
-    
-	for(i = 0; i < users.length; i++){
-        if ((users[i].username === username) && (users[i].password === password)){
+
+    for (i = 0; i < users.length; i++) {
+        if ((users[i].username === username) && (users[i].password === password)) {
             // user is signed
-			foundUser = true;
-			// get a user ID
+            foundUser = true;
+            // get a user ID
             let uid = guid();
             // send uid cookie with max life time of 60 min
-            res.cookie('uid',uid, { maxAge: 3.6e+6 });
-			// set the users id
+            res.cookie('uid', uid, {maxAge: 3.6e+6});
+            // set the users id
             users[i].uid = uid;
             console.log("user logged in = " + users[i].username);
             res.send(200);
             break;
         }
     }
-    if (!foundUser){
+    if (!foundUser) {
         console.log("user or password were not found");
         res.send(500);
     }
@@ -122,21 +122,22 @@ app.post("/login/:username/:password",function(req,res,next){
 
 // helper method - get a unique user ID
 function guid() {
-	// create a unique user ID
+    // create a unique user ID
     function uUidMaker() {
         return Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
             .substring(1);
     }
-	// can change length as needed for safty reasons
+
+    // can change length as needed for safty reasons
     return uUidMaker() + '-' + uUidMaker() + uUidMaker() + '-' + uUidMaker() + uUidMaker() + uUidMaker() +
-         '-' + uUidMaker() + uUidMaker() + uUidMaker() + uUidMaker();
+        '-' + uUidMaker() + uUidMaker() + uUidMaker() + uUidMaker();
 }
 
 // adds a user's event
-app.post("/item/", function(req,res){
+app.post("/item/", function (req, res) {
     let newEvent = req.body;
-	// can use the same UID function for event IDs
+    // can use the same UID function for event IDs
     newEvent.id = guid();
     newEvent.time = generateTimeStamp();
     events.unshift(newEvent);
@@ -154,84 +155,84 @@ function generateTimeStamp() {
 /// get requests handlers
 
 // return all the items as an array object
-app.get("/items",function(req,res,next){
+app.get("/items", function (req, res, next) {
     res.send(events);
 });
 
 // returns the item with the right id or 404 if no such an item
-app.get("/item/:id", function(req,res,next){
+app.get("/item/:id", function (req, res, next) {
     let id = req.params.id;
     console.log("id to return = " + id);
     let found = false;
-    for(i = 0; i < events.length; i++) {
+    for (i = 0; i < events.length; i++) {
         var event = events[i];
-        if(event.id === id) {
+        if (event.id === id) {
             found = true;
             res.send(event);
             break;
         }
     }
-    if (!found){
+    if (!found) {
         next();
     }
 });
 
-app.get("/edit/:id",function(req,res){
+app.get("/edit/:id", function (req, res) {
     let id = req.params.id;
     let eventToReturn;
-    events.forEach(function(event){
-       if (event.id === id){
-           eventToReturn = event;
-       }
+    events.forEach(function (event) {
+        if (event.id === id) {
+            eventToReturn = event;
+        }
     });
     res.render("edit-event", {event: eventToReturn});
 });
 
-app.use("/events", function(req,res){
+app.use("/events", function (req, res) {
     console.log("/events");
     res.render("events", {events: events});
 });
 
 
 //upload home page
-app.get("/public/login-page.html", function(req,res,next){
+app.get("/public/login-page.html", function (req, res, next) {
     res.render("login-page");
 });
 
 
 /// delete requests handler
 
-app.delete("/item/:id",function(req,res,next){
+app.delete("/item/:id", function (req, res, next) {
     let id = req.params.id;
     let found = false;
-    for(i = 0; i < events.length; i++) {
+    for (i = 0; i < events.length; i++) {
         let event = events[i];
-        if(event.id == id) {
+        if (event.id == id) {
             found = true;
             events.splice(i, 1);
             console.log("deleted event id = " + id);
             break;
         }
     }
-    if (!found){
+    if (!found) {
         next();
     } else {
         res.redirect(res.get("/events"));
     }
-});	
+});
 
 
 /// put requests handler
-	
+
 // overwrite the properties values of the item with the same id or 404 if no such an item
-app.put("/item/", function(req,res,next){
+app.put("/item/", function (req, res, next) {
     console.log("PUT /item/");
     let updatedEvent = req.body;
     let id = updatedEvent.id;
     let found = false;
     console.log("event to update = " + JSON.stringify(updatedEvent));
-    events.forEach(function(event){
-        if (id === event.id){
+    events.forEach(function (event) {
+        if (id === event.id) {
             event.name = updatedEvent.name;
             event.time = generateTimeStamp();
             event.location = updatedEvent.location;
@@ -250,22 +251,22 @@ app.put("/item/", function(req,res,next){
 /// general handlers 
 
 // checks if a user's id exists
-app.use("/", function(req,res,next){
+app.use("/", function (req, res, next) {
     let cookieUid = req.cookies.uid;
     let cookieFound = false;
-	
-	// if the user id exists continue
-	// else show him the login page again
-    if (cookieUid){
-        users.forEach(function(user){
-            if(cookieUid === user.uid){
+
+    // if the user id exists continue
+    // else show him the login page again
+    if (cookieUid) {
+        users.forEach(function (user) {
+            if (cookieUid === user.uid) {
                 cookieFound = true;
                 console.log("cookie verified - " + user.uid);
-				res.redirect("/events");
+                res.redirect("/events");
             }
         });
     }
-    if (!cookieFound){
+    if (!cookieFound) {
         res.render("login-page");
     } else {
         next();
@@ -273,7 +274,7 @@ app.use("/", function(req,res,next){
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     res.send(err);
