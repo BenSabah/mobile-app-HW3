@@ -1,7 +1,7 @@
 // array to hold our users
 const users = [
     {
-        uid: "1",
+        uid: "0",
         username: "admin",
         password: "1234"
     }
@@ -18,8 +18,8 @@ app.post("/register/:username/:password", function (req, res) {
     let userExist = false;
 
     // checks if the user already exists
-    // or if its a new user we need to add
-    for (i = 0; i < users.length; i++) {
+    // or if it's a new user we need to add
+    for (let i = 0; i < users.length; i++) {
         if (users[i].username === username) {
             userExist = true;
             break;
@@ -30,7 +30,7 @@ app.post("/register/:username/:password", function (req, res) {
         res.send(500);
     } else {
         console.log("Registration successful");
-        users.push({username: username, password: password});
+        users.push({uid: users.length.toString(), username: username, password: password});
         res.send(200);
     }
 });
@@ -41,13 +41,13 @@ app.post("/login/:username/:password", function (req, res) {
     let password = req.params.password;
     let foundUser = false;
 
-    for (i = 0; i < users.length; i++) {
+    for (let i = 0; i < users.length; i++) {
         if ((users[i].username === username) && (users[i].password === password)) {
             // user is signed
             foundUser = true;
             // get a user ID
             let uid = guid();
-            // send uid cookie with max life time of 60 min
+            // send uid cookie with max lifetime of 60 min
             res.cookie('uid', uid, {maxAge: 3.6e+6});
             // set the users id
             users[i].uid = uid;
@@ -71,7 +71,7 @@ function guid() {
             .substring(1);
     }
 
-    // can change length as needed for safty reasons
+    // can change length as needed for safety reasons
     return uUidMaker() + '-' + uUidMaker() + uUidMaker() + '-' + uUidMaker() + uUidMaker() + uUidMaker() +
         '-' + uUidMaker() + uUidMaker() + uUidMaker() + uUidMaker();
 }
@@ -88,7 +88,7 @@ app.post("/item/", function (req, res) {
 
 // helper method - generate a timestamp
 function generateTimeStamp() {
-    var date = new Date().toUTCString();
+    const date = new Date().toUTCString();
     console.log("Date is:" + date)
     return date;
 }
@@ -106,8 +106,8 @@ app.get("/item/:id", function (req, res, next) {
     let id = req.params.id;
     console.log("id to return = " + id);
     let found = false;
-    for (i = 0; i < events.length; i++) {
-        var event = events[i];
+    for (let i = 0; i < events.length; i++) {
+        const event = events[i];
         if (event.id === id) {
             found = true;
             res.send(event);
@@ -147,7 +147,7 @@ app.get("/public/login-page.html", function (req, res) {
 app.delete("/item/:id", function (req, res, next) {
     let id = req.params.id;
     let found = false;
-    for (i = 0; i < events.length; i++) {
+    for (let i = 0; i < events.length; i++) {
         let event = events[i];
         if (event.id === id) {
             found = true;
@@ -218,7 +218,7 @@ app.use("/", function (req, res, next) {
 
 // catch 404 and forward to error handler
 app.use(function (req, res) {
-    var err = new Error('Not Found');
+    const err = new Error('Not Found');
     err.status = 404;
     res.send(err);
 });
