@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6d1e4f58-0761-4f37-accb-98abdae14dc0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2Yp2oyXLVExu5PdcjVPngTrtir6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "javascript.nodejs.core.library.configured.version": "12.13.0",
+    "javascript.nodejs.core.library.typings.version": "12.20.55",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6d1e4f58-0761-4f37-accb-98abdae14dc0" name="Changes" comment="" />
+      <created>1701208380517</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701208380517</updated>
+      <workItem from="1701208382457" duration="3760000" />
+    </task>
+    <task id="LOCAL-00001" summary="updated gitignore">
+      <option name="closed" value="true" />
+      <created>1701208732042</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701208732042</updated>
+    </task>
+    <task id="LOCAL-00002" summary="updated gitignore">
+      <option name="closed" value="true" />
+      <created>1701208801670</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701208801670</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fixed formatting">
+      <option name="closed" value="true" />
+      <created>1701208933228</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701208933228</updated>
+    </task>
+    <task id="LOCAL-00004" summary="updated gitignore">
+      <option name="closed" value="true" />
+      <created>1701209137530</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701209137530</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixed formatting">
+      <option name="closed" value="true" />
+      <created>1701209153699</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701209153699</updated>
+    </task>
+    <task id="LOCAL-00006" summary="small fixes">
+      <option name="closed" value="true" />
+      <created>1701209816435</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701209816435</updated>
+    </task>
+    <task id="LOCAL-00007" summary="small fixes">
+      <option name="closed" value="true" />
+      <created>1701210295962</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701210295962</updated>
+    </task>
+    <task id="LOCAL-00008" summary="use strict versions of packages">
+      <option name="closed" value="true" />
+      <created>1701210584374</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701210584374</updated>
+    </task>
+    <task id="LOCAL-00009" summary="use newer versions of packages">
+      <option name="closed" value="true" />
+      <created>1701210781166</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701210781166</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fixed app.js missing code and turtle image">
+      <option name="closed" value="true" />
+      <created>1701211585745</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701211585745</updated>
+    </task>
+    <task id="LOCAL-00011" summary="updated some packages">
+      <option name="closed" value="true" />
+      <created>1701211765786</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701211765786</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="updated gitignore" />
+    <MESSAGE value="fixed formatting" />
+    <MESSAGE value="small fixes" />
+    <MESSAGE value="use strict versions of packages" />
+    <MESSAGE value="use newer versions of packages" />
+    <MESSAGE value="fixed app.js missing code and turtle image" />
+    <MESSAGE value="updated some packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated some packages" />
+  </component>
+</project>
