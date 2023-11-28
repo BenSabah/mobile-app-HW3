@@ -1,11 +1,53 @@
+// import the relevant libraries
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+
+// make an express object
+const app = express();
+
+// create a virtual path prefix that enables using the following resources:
+// images, CSS files, and JavaScript files from a directory named public
+// you can load the files that are in the public directory from the /static path prefix.
+app.use('/public', express.static(path.join(__dirname, 'public')));
+app.set("view engine", "ejs");
+
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(cookieParser());
+
+// START THE SERVER
+// =============================================================================
+//var port = process.env.PORT || 8080;        // set our port
+const port = 8080;
+app.listen(port);
+console.log('Magic happens on port ' + port);
+
+
+//All events are going to be stored in here
+const events = [{
+    name: "Basketball game, need 3 more players",
+    time: "Thu, 21 Jun 2017 19:00:00 GMT",
+    location: "Herzliya, park",
+    activity: "basketball",
+    img: "https://s-media-cache-ak0.pinimg.com/originals/32/77/9d/32779d944a90b66478da7e58a359d4a8.jpg",
+    id: "0"
+}, {
+    name: "Ninja turtles meeting, need 2 more turtles",
+    time: "Sat, 1 July 2017 20:30:00 GMT",
+    location: "TA, Dizingof 23",
+    activity: "kicking bad guys",
+    img: "https://pnghq.com/wp-content/uploads/pnghq.com-teenage-mutant-ninja-turtles-png-photo.png",
+    id: "1"
+}];
+
 // array to hold our users
-const users = [
-    {
-        uid: "0",
-        username: "admin",
-        password: "1234"
-    }
-];
+const users = [{
+    uid: "0", username: "admin", password: "1234"
+}];
 
 /// post requests handlers
 
@@ -72,8 +114,7 @@ function guid() {
     }
 
     // can change length as needed for safety reasons
-    return uUidMaker() + '-' + uUidMaker() + uUidMaker() + '-' + uUidMaker() + uUidMaker() + uUidMaker() +
-        '-' + uUidMaker() + uUidMaker() + uUidMaker() + uUidMaker();
+    return uUidMaker() + '-' + uUidMaker() + uUidMaker() + '-' + uUidMaker() + uUidMaker() + uUidMaker() + '-' + uUidMaker() + uUidMaker() + uUidMaker() + uUidMaker();
 }
 
 // adds a user's event
