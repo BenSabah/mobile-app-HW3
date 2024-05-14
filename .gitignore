@@ -1,2 +1,5 @@
 /node_modules/
-pair.txt
+/.DS_Store
+/.idea
+/.vs
+/dist
