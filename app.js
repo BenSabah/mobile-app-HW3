@@ -207,7 +207,7 @@ app.delete("/item/:id", function (req, res, next) {
 
 /// put requests handler
 
-// overwrite the properties values of the item with the same id or 404 if no such an item
+// overwrite the property values of the item with the same id or 404 if no such an item
 app.put("/item/", function (req, res, next) {
     console.log("PUT /item/");
     let updatedEvent = req.body;

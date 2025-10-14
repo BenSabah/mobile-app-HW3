@@ -4,17 +4,18 @@ console.log("script loaded");
 $("#register").click(function () {
     let username = $("#username").val();
     let password = $("#password").val();
+    let $loginErrorMessage = $("#loginErrorMessage");
     $.post("/register/" + username + "/" + password, function (data, status) {
         console.log("user was added");
-        $("#loginErrorMessage").text("You were successfully registered, please login");
-        $("#loginErrorMessage").css("color", "#00ff7f");
-        $("#loginErrorMessage").css("visibility", "visible");
+        $loginErrorMessage.text("You were successfully registered, please login");
+        $loginErrorMessage.css("color", "#00ff7f");
+        $loginErrorMessage.css("visibility", "visible");
     }).fail(function () {
-        $("#loginErrorMessage").text("User name already taken");
-        $("#loginErrorMessage").css("color", "#ff4444");
-        $("#loginErrorMessage").css("visibility", "visible");
+        $loginErrorMessage.text("User name already taken");
+        $loginErrorMessage.css("color", "#ff4444");
+        $loginErrorMessage.css("visibility", "visible");
         setTimeout(() => {
-            $("#loginErrorMessage").css("visibility", "hidden")
+            $loginErrorMessage.css("visibility", "hidden")
         }, 3000);
     })
 });
@@ -27,11 +28,12 @@ $("#login").click(function () {
         console.log("correct username and password");
         window.location.replace("/events");
     }).fail(function () {
-        $("#loginErrorMessage").text("Wrong user name or password");
-        $("#loginErrorMessage").css("color", "#ff4444");
-        $("#loginErrorMessage").css("visibility", "visible");
+        let $loginErrorMessage = $("#loginErrorMessage");
+        $loginErrorMessage.text("Wrong user name or password");
+        $loginErrorMessage.css("color", "#ff4444");
+        $loginErrorMessage.css("visibility", "visible");
         setTimeout(() => {
-            $("#loginErrorMessage").css("visibility", "hidden")
+            $loginErrorMessage.css("visibility", "hidden")
         }, 3000);
     });
 });
