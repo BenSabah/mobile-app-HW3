@@ -21,13 +21,11 @@ app.use(cookieParser());
 
 // START THE SERVER
 // =============================================================================
-//var port = process.env.PORT || 8080;        // set our port
 const port = 8080;
 app.listen(port);
 console.log('Magic happens on port ' + port);
 
-
-//All events are going to be stored in here
+// all events are going to be stored in here
 const events = [{
     name: "Basketball game, need 3 more players",
     time: "Thu, 21 Jun 2017 19:00:00 GMT",
@@ -40,7 +38,7 @@ const events = [{
     time: "Sat, 1 July 2017 20:30:00 GMT",
     location: "TA, Dizingof 23",
     activity: "kicking bad guys",
-    img: "https://pnghq.com/wp-content/uploads/pnghq.com-teenage-mutant-ninja-turtles-png-photo.png",
+    img: "https://www.syfy.com/sites/syfy/files/styles/hero_image__large__computer__alt/public/batman_vs._tmnt_group.jpeg",
     id: "1"
 }];
 
@@ -48,8 +46,6 @@ const events = [{
 const users = [{
     uid: "0", username: "admin", password: "1234"
 }];
-
-/// post requests handlers
 
 // add a user and a password to the user-list
 app.post("/register/:username/:password", function (req, res) {
@@ -60,7 +56,7 @@ app.post("/register/:username/:password", function (req, res) {
     let userExist = false;
 
     // checks if the user already exists
-    // or if it's a new user we need to add
+    // or if it's a new user, we need to add
     for (let i = 0; i < users.length; i++) {
         if (users[i].username === username) {
             userExist = true;
@@ -134,9 +130,6 @@ function generateTimeStamp() {
     return date;
 }
 
-
-/// get requests handlers
-
 // return all the items as an array object
 app.get("/items", function (req, res) {
     res.send(events);
@@ -160,6 +153,7 @@ app.get("/item/:id", function (req, res, next) {
     }
 });
 
+// edit event
 app.get("/edit/:id", function (req, res) {
     let id = req.params.id;
     let eventToReturn;
@@ -171,20 +165,18 @@ app.get("/edit/:id", function (req, res) {
     res.render("edit-event", {event: eventToReturn});
 });
 
+// view events
 app.use("/events", function (req, res) {
     console.log("/events");
     res.render("events", {events: events});
 });
 
-
-//upload home page
+// upload home page
 app.get("/public/login-page.html", function (req, res) {
     res.render("login-page");
 });
 
-
-/// delete requests handler
-
+// delete requests handler
 app.delete("/item/:id", function (req, res, next) {
     let id = req.params.id;
     let found = false;
@@ -203,9 +195,6 @@ app.delete("/item/:id", function (req, res, next) {
         res.redirect(res.get("/events"));
     }
 });
-
-
-/// put requests handler
 
 // overwrite the property values of the item with the same id or 404 if no such an item
 app.put("/item/", function (req, res, next) {
@@ -229,9 +218,6 @@ app.put("/item/", function (req, res, next) {
         next();
     }
 });
-
-
-/// general handlers
 
 // checks if a user's id exists
 app.use("/", function (req, res, next) {
