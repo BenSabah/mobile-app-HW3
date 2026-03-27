@@ -2,12 +2,13 @@
   "name": "ex3",
   "version": "1.0.3",
   "description": "200662781 300358991",
+  "author": "200662781 300358991",
+  "license": "GPL-3.0-only",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "1.20.4",
     "cookie-parser": "1.4.7",
     "ejs": "3.1.10",
     "express": "5.2.1"

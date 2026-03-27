@@ -95,3 +95,16 @@ body {
     text-align: center;
     color: var(--third-color);
 }
+
+.mdl-textfield__label_static {
+    color: var(--third-color);
+    font-size: 1.2em;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.mdl-textfield {
+    display: flex !important;
+    align-items: center;
+    width: 100% !important;
+}
