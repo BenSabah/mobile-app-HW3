@@ -1,0 +1,78 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+}
+
+.split-login-container {
+    background-color: var(--second-color);
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 900px;
+    overflow: hidden;
+}
+
+.login-section, .register-section {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.divider {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    align-self: stretch;
+    margin: 40px 0;
+}
+
+.section-desc {
+    color: var(--third-color);
+    opacity: 0.8;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    color: var(--third-color);
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.custom-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 12px;
+    color: var(--third-color);
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.custom-input:focus {
+    border-color: var(--third-color);
+}
+
+.error-text {
+    color: #ff4444;
+    font-size: 0.85em;
+    margin-top: 5px;
+    visibility: hidden;
+    height: 1.2em;
+}

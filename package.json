@@ -6,11 +6,24 @@
   "license": "GPL-3.0-only",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "tsx src/server.ts",
+    "build": "tsc",
+    "test": "jest"
   },
   "dependencies": {
     "cookie-parser": "1.4.7",
     "ejs": "3.1.10",
     "express": "5.2.1"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.6.0",
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.9",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
   }
 }
