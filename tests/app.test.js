@@ -134,14 +134,14 @@ describe('Public Routes and Middleware', () => {
             .get('/events');
         // The middleware renders "login-page" which has status 200 by default if using res.render
         expect(response.status).toBe(200);
-        expect(response.text).toContain('Login page');
+        expect(response.text).toContain('<title>Login</title>');
     });
 
     it('should render login page on root if not authenticated', async () => {
         const response = await request(app)
             .get('/');
         expect(response.status).toBe(200);
-        expect(response.text).toContain('Login page');
+        expect(response.text).toContain('<title>Login</title>');
     });
 
     it('should redirect to /events on root if authenticated', async () => {
